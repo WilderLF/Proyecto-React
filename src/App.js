@@ -1,12 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/NavBar';
+import CardWidget from './components/CardWidget';
+import ItemListContainer from './components/ItemListContainer';
 
 function App() {
   return (
     <div className="App">
       <NavBar/>
       <h1 className="text-3xl font-bold underline">Hola Mi tutorsito de React </h1>
+      <ItemListContainer/>
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
