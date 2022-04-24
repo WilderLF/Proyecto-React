@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <NavBar/>
       <h1 className="text-3xl font-bold underline">Hola Mi tutorsito de React </h1>
-      <ItemListContainer/>
+      <ItemListContainer greeting="Motoenvios LM"/>
       <ItemCount/>
     </div>
   );
