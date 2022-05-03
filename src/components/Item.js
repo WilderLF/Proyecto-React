@@ -1,23 +1,31 @@
-const Item = ( props ) => {
+import React from 'react';
+import ItemCount from './ItemCount.js';
 
-  const {precio, title, detalle} = props.item
+
+const Item = (item) => {
+  const onAdd = (qty) => {
+    alert(`Has agregado ${qty} Envíos 📦`);
+  };
 
   return (
-    <div>
-        <div class="card w-96 bg-base-100 shadow-xl">
-  <figure><img src="https://motoenvioslm.com/wp-content/uploads/2021/04/zonadeentrega.png" alt="Shoes" /></figure>
-  <div class="card-body">
-    <h2 class="card-title">
-    {title}
-      <div class="badge badge-secondary">{precio}</div>
+
+    <div class="container mx-auto card w-96 bg-base-100 shadow-xl">
+  <figure class="px-10 pt-10">
+    <img src={item.thumbnail} alt="Shoes" class="rounded-xl" />
+  </figure>
+  <div class="card-body items-center text-center">
+  <h2 class="card-title">
+  {item.name}
+      
     </h2>
-    <p>{detalle}</p>
-    <div class="card-actions justify-end">
-      <button class="btn btn-primary">Pedir ahora</button>
+    
+   
+    <div class="card-actions">
+        <ItemCount stock={item.stock} onAdd={onAdd} initial={1}/>
     </div>
   </div>
 </div>
-    </div>
-  )
-}
-export default Item
+  );
+};
+
+export default Item;

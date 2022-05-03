@@ -1,36 +1,29 @@
 import React from 'react';
 import { useState } from 'react';
-import './Style/ItemCount.css'
 
 
-const ItemCount = ({ onAdd }) => {
-  const initial = 1; 
-  const stock = 7; 
-
- 
+const ItemCount = ({ initial, stock, onAdd }) => {
+  //hook de estado
   const [qty, setQty] = useState(initial);
 
-  
   const addProduct = (num) => {
     setQty(qty + num);
   };
 
   return (
-    <div className="count-container">
-      <div className="count-container__contador">
+    <div className="text-2xl font-bold tracking-wide ">
+      <div className="">
         <button
-          className="count-container__button"
+          className="box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2 "
           onClick={() => addProduct(-1)}
-          
           disabled={qty === initial ? true : null}
         >
           -
         </button>
-        <span className="count-container__qty">{qty}</span>
+        <span className="">{qty}</span>
         <button
-          className="count-container__button"
+          className="box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2"
           onClick={() => addProduct(+1)}
-          
           disabled={qty === stock ? true : null}
         >
           +
@@ -38,7 +31,7 @@ const ItemCount = ({ onAdd }) => {
       </div>
 
       <button
-        className="button-primary"
+        className="btn btn-primary"
         onClick={() => onAdd(qty)}
         disabled={stock === 0 ? true : null}
       >

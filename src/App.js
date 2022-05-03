@@ -1,23 +1,20 @@
 import './App.css';
-import NavBar from './components/NavBar';
+import ItemDetailContainer from './components/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer';
-import ItemCount from './components/ItemCount';
-import './components/Style/ItemCount.css'
+import NavBar from './components/NavBar';
 
 function App() {
-
-  const onAdd = (qty) => {
-    alert(`Agregaste ${qty} productos`);
-  };
-
   return (
-    
-    <div className="App">
-      <NavBar/>
-      <ItemCount onAdd={onAdd} />
-      <ItemListContainer  greeting="Motoenvios LM"/>
-      
+    <body>
+
+      <div>
+    <NavBar/>
+    <ItemListContainer/>
+    <ItemDetailContainer id={3} />
     </div>
+
+    </body>
+    
   );
 }
 

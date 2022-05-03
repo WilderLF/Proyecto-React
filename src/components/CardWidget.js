@@ -1,4 +1,4 @@
-function CardWidget() {
+const CartWidget = () => {
   return (
     <label tabindex="0" class="btn btn-ghost btn-circle">
         <div class="indicator">
@@ -8,4 +8,4 @@ function CardWidget() {
       </label>
   )
 }
-export default CardWidget
+export default CartWidget

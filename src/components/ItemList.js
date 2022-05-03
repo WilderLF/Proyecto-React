@@ -1,33 +1,38 @@
-import { data } from "autoprefixer";
-import { useEffect, useState } from "react";
-import { enviosData } from "../Data/enviosData";
-import Item from "./Item";
+import React, { useEffect, useState } from 'react';
+import Item from './Item';
+import { getAllProductsFromDB } from '../helpers/getData.js';
+
 
 const ItemList = () => {
+  const [products, setProducts] = useState([]);
 
-    const [envios, setEnvios] = useState([])
-
-    useEffect(() => {
-    getEnvios()
-    }, [])
-    
-    const getEnvios = () => {
-        const getEnviosPromise = new Promise((resolve, rejet) => { 
-            setTimeout(() => {
-              resolve( enviosData )  
-            }, 2000);
-        })
-
-        getEnviosPromise.then( data => {
-            setEnvios( data )
-        })
-    }
-
+  useEffect(() => {
+    getAllProductsFromDB(setProducts);
+  }, []);
 
   return (
     <div>
-        {envios.map( m => <Item key={m.id} item={m}/> )}
+      {products.length ? (
+        <>
+          {products.map((product) => {
+            return (
+              <div key={product.id}>
+                <Item
+                  name={product.name}
+                  thumbnail={product.thumbnail}
+                  price={product.price}
+                  stock={product.stock}
+                  id={product.id}
+                />
+              </div>
+            );
+          })}
+        </>
+      ) : (
+        <p>Cargando productos...</p>
+      )}
     </div>
-  )
-}
-export default ItemList
+  );
+};
+
+export default ItemList;
