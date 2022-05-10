@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 
 const ItemCount = ({ initial, stock, onAdd }) => {
-  //hook de estado
+  
   const [qty, setQty] = useState(initial);
 
   const addProduct = (num) => {

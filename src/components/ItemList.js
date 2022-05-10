@@ -19,10 +19,14 @@ const ItemList = () => {
               <div key={product.id}>
                 <Item
                   name={product.name}
-                  thumbnail={product.thumbnail}
                   price={product.price}
+                  thumbnail={product.thumbnail}
                   stock={product.stock}
+                  description={product.description}
+                  delivery={product.delivery}
+                  type={product.type}
                   id={product.id}
+                                                                        
                 />
               </div>
             );
