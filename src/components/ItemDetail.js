@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import ItemCount from './ItemCount';
 
 
@@ -6,7 +7,9 @@ import ItemCount from './ItemCount';
 
 
 const ItemDetail = ({ item }) => {
+  const [terminar, setTerminar] = useState (false)
   const onAdd = (qty) => {
+    setTerminar(true)
     alert(`Has agregado ${qty} Envíos 📦`);
   };
 
@@ -27,7 +30,16 @@ const ItemDetail = ({ item }) => {
       <div class="badge badge-outline">{item.type}</div>
     </div>
     <div class="card-actions">
-      <ItemCount stock={item.stock} onAdd={onAdd} initial={1}/>
+      {terminar ? (
+      
+          <Link to='/cart/'
+            className="btn btn-primary">
+            Terminar Comprar
+          </Link>
+      ) : (      
+        <ItemCount stock={item.stock} onAdd={onAdd} initial={1}/>
+    )}
+      
     </div>
   </div>
 </div>
